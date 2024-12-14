@@ -16,8 +16,9 @@ const AppError = require('./utils/AppError');
 
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
-const path = require('path');
-const swaggerDocument = YAML.load(path.join(__dirname, 'api-docs', 'openapi.yaml'));
+console.log('Directorio actual:', __dirname);
+const swaggerPath = path.join(__dirname, 'api-docs', 'openapi.yaml');
+console.log('Ruta completa del archivo OpenAPI:', swaggerPath);
 
 const app = express();
 
