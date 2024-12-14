@@ -1,14 +1,14 @@
-const app = require('./app');
-const config = require('./config/config');
+const app = require('./app');  // Importa tu aplicación
+const config = require('./config/config');  // Configuración personalizada (si la tienes)
 
-const port = process.env.PORT || config.port;
+const port = process.env.PORT || config.port || 3000;  // Asegúrate de usar el puerto dinámico de Vercel o uno predeterminado
 
-// Server
-const server = app.listen(port, () =>
-  console.log(`Server is listening at http://localhost:${port}`),
-);
+// Inicia el servidor
+const server = app.listen(port, () => {
+  console.log(`Server is listening at http://localhost:${port}`);
+});
 
-// Handle unhandled rejections
+// Manejo de promesas no capturadas (unhandled rejections)
 process.on('unhandledRejection', (err) => {
   console.error('UNHANDLED REJECTION! 💥 Shutting down...');
   console.error(err.name, err.message);
@@ -17,7 +17,7 @@ process.on('unhandledRejection', (err) => {
   });
 });
 
-// Handle uncaught exceptions
+// Manejo de excepciones no capturadas (uncaught exceptions)
 process.on('uncaughtException', (err) => {
   console.error('UNCAUGHT EXCEPTION! 💥 Shutting down...');
   console.error(err.name, err.message);
