@@ -17,7 +17,7 @@ const AppError = require('./utils/AppError');
 
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
-const swaggerDocument = YAML.load('api-docs/openapi.yaml');
+const swaggerDocument = YAML.load('./api-docs/openapi.yaml');
 
 const app = express();
 
